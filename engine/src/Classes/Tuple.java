@@ -1,5 +1,8 @@
 package Classes;
 
+import java.util.ArrayList;
+import java.util.Hashtable;
+
 public class Tuple{
-    Object[] attribute;
+    Hashtable<String, Object> htblColNameValue;
 }
