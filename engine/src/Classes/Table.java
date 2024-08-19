@@ -1,11 +1,17 @@
 package Classes;
 
+import java.util.Hashtable;
+
 public class Table {
     String tableName;
-    Page[] pages = new Page[50];
+    Hashtable<String, String> htblColNameValue;
+    Page[] pages;
     String strClusteringKeyColumn;
     String strReferencedTable;
-    String strStrReferencedColumn;
+    String strReferencedColumn;
     String strReferencingColumn;
 
+    public Table(String tableName, Hashtable<String, String> htblColNameValue, Page[] pages, String strClusteringKeyColumn, String strReferencedTable, String strReferencingColumn, String strReferencedColumn){
+
+    }
 }
