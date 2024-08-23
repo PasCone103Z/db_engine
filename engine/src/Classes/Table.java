@@ -11,7 +11,7 @@ public class Table {
     String strReferencedColumn;
     String strReferencingColumn;
 
-    public Table(String tableName, Hashtable<String, String> htblColNameValue, Page[] pages, String strClusteringKeyColumn, String strReferencedTable, String strReferencingColumn, String strReferencedColumn){
-
+    public Table(String name, Hashtable<String, String> htblColNameValue, Page[] pages, String strClusteringKeyColumn, String strReferencedTable, String strReferencingColumn, String strReferencedColumn){
+        tableName = name;
     }
 }
