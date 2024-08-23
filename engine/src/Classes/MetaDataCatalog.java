@@ -4,13 +4,13 @@ public class MetaDataCatalog {
     private String tableName;
     String[] ColumnName;
     String[] ColumnType;
-    int index;
+    int[] index;
     String referencingColumn;
     String referencedColumn;
     String referencedTable;
 
 
-    public MetaDataCatalog(String tableName, String[] columnName, String[] columnType, int index, String referencingColumn, String referencedColumn, String referencedTable) {
+    public MetaDataCatalog(String tableName, String[] columnName, String[] columnType, int[] index, String referencingColumn, String referencedColumn, String referencedTable) {
         this.tableName = tableName;
         ColumnName = columnName;
         ColumnType = columnType;
@@ -32,7 +32,7 @@ public class MetaDataCatalog {
         return ColumnType;
     }
 
-    public int getIndex() {
+    public int[] getIndex() {
         return index;
     }
 

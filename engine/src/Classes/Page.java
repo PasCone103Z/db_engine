@@ -14,10 +14,17 @@ public class Page {
 
     @Override
     public String toString() {
+        String out = "";
         for (Tuple t : tuples){
-            t.toString();
+            out.concat(t.toString());
         }
-        return "";
+        return out;
     }
+
+    public boolean isOverflow(){
+        return (tuples.length == max);
+    }
+
+
 
 }

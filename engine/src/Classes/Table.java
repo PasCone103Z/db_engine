@@ -4,14 +4,22 @@ import java.util.Hashtable;
 
 public class Table {
     String tableName;
-    Hashtable<String, String> htblColNameValue;
+    MetaDataCatalog metadata;
+    Hashtable<String, String> htblColNameType;
     Page[] pages;
     String strClusteringKeyColumn;
     String strReferencedTable;
     String strReferencedColumn;
     String strReferencingColumn;
 
-    public Table(String name, Hashtable<String, String> htblColNameValue, Page[] pages, String strClusteringKeyColumn, String strReferencedTable, String strReferencingColumn, String strReferencedColumn){
-        tableName = name;
+    public Table(String tableName, MetaDataCatalog metadata, Hashtable<String, String> htblColNameType, Page[] pages, String strClusteringKeyColumn, String strReferencedTable, String strReferencedColumn, String strReferencingColumn) {
+        this.tableName = tableName;
+        this.metadata = metadata;
+        this.htblColNameType = htblColNameType;
+        this.pages = pages;
+        this.strClusteringKeyColumn = strClusteringKeyColumn;
+        this.strReferencedTable = strReferencedTable;
+        this.strReferencedColumn = strReferencedColumn;
+        this.strReferencingColumn = strReferencingColumn;
     }
 }
