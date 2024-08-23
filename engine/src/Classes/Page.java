@@ -3,6 +3,7 @@ package Classes;
 public class Page {
     int max = 0;
     Tuple[] tuples = new Tuple[max];
+    int size = 0;
 
     public void init(int n){
         max = n;
@@ -22,7 +23,11 @@ public class Page {
     }
 
     public boolean isOverflow(){
-        return (tuples.length == max);
+        return (size == max);
+    }
+
+    public boolean isEmpty(){
+        return (size == 0);
     }
 
 

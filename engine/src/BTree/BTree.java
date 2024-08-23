@@ -107,4 +107,8 @@ public class BTree<TKey extends Comparable<TKey>, TValue> {
     public String commit() {
         return this.root.commit();
     }
+
+    public void iterate(){
+
+    }
 }
