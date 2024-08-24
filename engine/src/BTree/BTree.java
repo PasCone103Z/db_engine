@@ -1,6 +1,9 @@
 package BTree;
 
 import java.util.ArrayList;
+import DBApp.DBAppException;
+
+
 
 /**
  * A B+ tree Since the structures and behaviors between internal node and
@@ -10,7 +13,7 @@ import java.util.ArrayList;
  * @param < TKey > the data type of the key
  * @param < TValue > the data type of the value
  */
-public class BTree<TKey extends Comparable<TKey>, TValue> {
+public class BTree<TKey extends Comparable<TKey>, TValue> implements Iterator{
     /**
      * @uml.property name="root"
      * @uml.associationEnd multiplicity="(1 1)"
@@ -108,7 +111,37 @@ public class BTree<TKey extends Comparable<TKey>, TValue> {
         return this.root.commit();
     }
 
-    public void iterate(){
+    public ArrayList<BTreeLeafNode> open(){
+        int index = 0;
+        ArrayList<BTreeLeafNode> leaves = new ArrayList<BTreeLeafNode>();
+        ArrayList<BTreeNode> nodes = new ArrayList<BTreeNode>();
+        nodes.add(root);
+        while (!nodes.isEmpty()){
+            BTreeNode node = nodes.get(0);
+            if(node instanceof BTreeInnerNode){
+                ArrayList<BTreeNode> children = ((BTreeInnerNode) node).getChildren();
+                for (BTreeNode child : children){
+                    if(child != null){
+                        nodes.add(child);
+                    }
+                }
+            } else if (node instanceof BTreeLeafNode) {
+                leaves.add((BTreeLeafNode)nodes.remove(0));
+            }
+        }
+        return leaves;
+    }
 
+    public BTreeLeafNode getNext(ArrayList<BTreeLeafNode> arr){
+        BTreeLeafNode b = new BTreeLeafNode();
+        if (!arr.isEmpty()) {
+            b = (arr.remove(0));
+        } else close();
+        return b;
+    }
+
+
+    public void close() {
+        System.out.println("\n Last Node Cleared");
     }
 }

@@ -1,4 +1,4 @@
-
+package DBApp;
 /** * @author Wael Abouelsaadat */ 
 
 import java.util.Iterator;
@@ -41,7 +41,7 @@ public class DBApp {
 							String strReferencedTable,
 							String strReferencedColumn,
 							String strReferencingColumn )
-							throws DBAppException{
+							throws DBAppException {
 									
 	
 	
@@ -64,7 +64,7 @@ public class DBApp {
 	// relation must be respected; else an exception is thrown.
 	public void insertIntoTable(String strTableName,
 								Hashtable<String,Object> htblColNameValue)
-								throws DBAppException{
+								throws DBAppException {
 	
 	}
 
@@ -78,7 +78,7 @@ public class DBApp {
 	// This is not a cascaded delete.
 	public void deleteFromTable(String strTableName,
 								Hashtable<String,Object> htblColNameValue)
-								throws DBAppException{
+								throws DBAppException {
 
 
 	
@@ -90,13 +90,13 @@ public class DBApp {
 	// client code to iterate over the results row by row. Whatever object 
 	// you return holding the result set, it should implement the Iterator 
 	// interface.
-	public Iterator join( String[] strarrTableNames )	throws DBAppException{
+	public Iterator join( String[] strarrTableNames )	throws DBAppException {
 		return null;
 	}
 
 	// following method is used to dump a whole table, i.e. all the rows 
 	// are printed to the screen. 
-	public void dumpTable( String strTable ) throws DBAppException{
+	public void dumpTable( String strTable ) throws DBAppException {
 		
 	}
 

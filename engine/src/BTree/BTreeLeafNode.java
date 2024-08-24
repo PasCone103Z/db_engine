@@ -1,6 +1,7 @@
 package BTree;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 /**
  * @author mohamed
@@ -11,6 +12,7 @@ class BTreeLeafNode<TKey extends Comparable<TKey>, TValue> extends BTreeNode<TKe
 	 * @uml.property name="values"
 	 */
 	private final Object[] values;
+    private LinkedList<Object>[] duplicates;
 	/**
 	 * @uml.property name="filters"
 	 * @uml.associationEnd multiplicity="(0 -1)" elementType="java.lang.Boolean"
@@ -191,6 +193,18 @@ class BTreeLeafNode<TKey extends Comparable<TKey>, TValue> extends BTreeNode<TKe
 	@Override
 	public BTreeLeafNode getSmallest() {
 		return this;
+	}
+
+    /**Add a duplicate into a linked list.***/
+    public void addDuplicate(TKey key, TValue value){
+        int j = search(key);
+        duplicates[j].add(value);
+    }
+
+	/**Remove a duplicate from the linked list. Returns a node***/
+    public void removeDuplicate(TKey key){
+		int j = search(key);
+		duplicates[j].remove();
 	}
 
 	// @Override
